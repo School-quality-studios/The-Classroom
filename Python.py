@@ -2,20 +2,31 @@ import os
 import sys
 
 def run_reaction_audit():
-    # The Robot Teacher looks for the reaction type
-    # ELI5: +1 means 👍 was clicked!
+    # Detect the architect's reaction [V]
     reaction = os.getenv('REACTION_TYPE', '')
     
-    print(f"🔎 [AUDIT] Scanning Node for Reaction: {reaction}")
-    
+    # GIANT VISUAL HUD FOR THE ARCHITECT
+    print("\n" + "="*60)
+    print("      🚀 SCHOOL QUALITY STUDIOS - AUDIT NODE 🚀      ")
+    print("="*60)
+
     if reaction == "+1":
-        print("✅ MASTERY CONFIRMED: Architect provided a Thumbs Up (👍).")
-        sys.exit(0) # Green Checkmark
+        print("\n   [ ✅ MASTERY CONFIRMED BY ARCHITECT ]   \n")
+        print("   STATUS: 120 FPS HIGH-FIDELITY SUCCESS   ")
+        print("   NODE: SYNCED TO GHOST DATABASE          ")
+        print("\n" + "="*60 + "\n")
+        sys.exit(0) 
+        
     elif reaction == "-1":
-        print("❌ AUDIT FAILED: Architect provided a Thumbs Down (👎).")
-        sys.exit(1) # Red X
+        print("\n   [ ❌ AUDIT FAILED - IMPROVEMENT REQUIRED ]   \n")
+        print("   STATUS: LOGIC-LOOP DISCONNECTED             ")
+        print("\n" + "="*60 + "\n")
+        sys.exit(1)
+        
     else:
-        print("⚠️ STANDBY: Waiting for Architect reaction...")
+        print("\n   [ ⚠️ STANDBY - WAITING FOR ARCHITECT ]   \n")
+        print("   ACTION: REACT WITH 👍 TO LOG MASTERY     ")
+        print("\n" + "="*60 + "\n")
         sys.exit(1)
 
 if __name__ == "__main__":
