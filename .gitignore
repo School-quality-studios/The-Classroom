@@ -1,0 +1,70 @@
+# ==========================================
+# ASCHOOL TECH - ZERO-LEAK SHIELD
+# ==========================================
+
+# --- I. PYTHON JUNK (The "Robot Junk") ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- II. ENVIRONMENT & SECRETS ---
+.env
+.venv
+venv/
+ENV/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- III. OPERATING SYSTEM JUNK ---
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# --- IV. STUDIO SPECIFIC NODES ---
+# Uncomment the line below if you want student scores 
+# to stay LOCAL and NOT show up on GitHub.
+# DATABASE.json
+
+# --- V. TOOLS & EDITORS ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
