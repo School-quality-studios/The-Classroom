@@ -8,6 +8,11 @@ env:
 jobs:
   logic_verification:
     runs-on: ubuntu-latest
+    # This block overrides the "Locked" settings in your organization
+    permissions:
+      contents: write
+      pull-requests: write
+    
     steps:
       - name: 🔒 INITIALIZING_SECURE_GATEWAY
         uses: actions/checkout@v4
@@ -19,7 +24,13 @@ jobs:
 
       - name: 🧪 EXECUTING_SYNC_VALIDATION
         env:
-          # This lets the script know who is doing the work
           GITHUB_ACTOR: ${{ github.actor }}
-        # THIS MUST MATCH YOUR FILENAME EXACTLY
         run: python Do_not_touch.py
+
+      - name: 📝 SYNC_SCORE_TO_LEDGER
+        run: |
+          git config --global user.name "Robot Teacher"
+          git config --global user.email "turtleboyslowdown@gmail.com"
+          git add DATABASE.json
+          git commit -m "✅ Mastery Points Logged" || echo "No changes to commit"
+          git push
