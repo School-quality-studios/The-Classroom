@@ -1,7 +1,9 @@
-name: ASCHOOL_Protocol_Engine_v4
-on: 
-  push:
-    branches: [ "main", "master" ]
+name: ASCHOOL_Protocol_Engine_v5
+on: [push]
+
+env:
+  # This fixes the Node.js 20 deprecation warning
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   logic_verification:
@@ -11,15 +13,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🧬 INJECTING_PYTHON_RUNTIME
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: 🧪 EXECUTING_SYNC_VALIDATION
-        run: |
-          echo "Connecting to Architect Node <turtleboyagain120>..."
-          python main.py
         env:
-          ARCHITECT_ID: ${{ secrets.ARCHITECT_ID }}
-          PROTOCOL_SIGNATURE: "120FPS_ACTIVE"
-    
+          # This lets the script know who is doing the work
+          GITHUB_ACTOR: ${{ github.actor }}
+        # THIS MUST MATCH YOUR FILENAME EXACTLY
+        run: python Do_not_touch.py
