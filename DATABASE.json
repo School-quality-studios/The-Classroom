@@ -1,0 +1,33 @@
+{
+    "studio_metadata": {
+        "org": "School Quality Studios",
+        "capacity": 5
+    },
+    "class_ledger": [
+        {
+            "id": "turtleboyagain120",
+            "score": 100,
+            "status": "MASTERED"
+        },
+        {
+            "id": "Student_02",
+            "score": 0,
+            "status": "INITIALIZING"
+        },
+        {
+            "id": "Student_03",
+            "score": 0,
+            "status": "INITIALIZING"
+        },
+        {
+            "id": "Student_04",
+            "score": 0,
+            "status": "INITIALIZING"
+        },
+        {
+            "id": "Student_05",
+            "score": 0,
+            "status": "INITIALIZING"
+        }
+    ]
+}
