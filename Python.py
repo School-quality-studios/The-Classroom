@@ -1,28 +1,22 @@
 import os
 import sys
-import time
 
-def execute_high_fidelity_audit():
-    # Detect the context of the audit
-    audit_actor = os.getenv('GITHUB_ACTOR', 'Unknown_Node')
-    evidence_payload = os.getenv('ISSUE_BODY', '')
+def run_reaction_audit():
+    # The Robot Teacher looks for the reaction type
+    # ELI5: +1 means 👍 was clicked!
+    reaction = os.getenv('REACTION_TYPE', '')
     
-    print(f"🚀 [AUDIT NODE] Initializing Visual Scan for Subject: {audit_actor}")
-    time.sleep(1) # Simulate high-fidelity processing
+    print(f"🔎 [AUDIT] Scanning Node for Reaction: {reaction}")
     
-    # ELI5: Search for the Markdown image signature "!["
-    if "![" in evidence_payload:
-        print("------------------------------------------------------------")
-        print(f"✅ EVIDENCE LOCATED: Visual node detected for {audit_actor}.")
-        print("✅ STATUS: Audit Passed. 120 FPS Target Met.")
-        print("------------------------------------------------------------")
-        sys.exit(0) # Signal Success to GitHub
+    if reaction == "+1":
+        print("✅ MASTERY CONFIRMED: Architect provided a Thumbs Up (👍).")
+        sys.exit(0) # Green Checkmark
+    elif reaction == "-1":
+        print("❌ AUDIT FAILED: Architect provided a Thumbs Down (👎).")
+        sys.exit(1) # Red X
     else:
-        print("------------------------------------------------------------")
-        print("❌ CRITICAL FAILURE: No visual evidence located.")
-        print("❌ ACTION REQUIRED: Upload screenshot to the Issue node.")
-        print("------------------------------------------------------------")
-        sys.exit(1) # Signal Failure (Red X)
+        print("⚠️ STANDBY: Waiting for Architect reaction...")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    execute_high_fidelity_audit()
+    run_reaction_audit()
