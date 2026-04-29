@@ -1,0 +1,25 @@
+name: ASCHOOL_Protocol_Engine_v4
+on: 
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  logic_verification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔒 INITIALIZING_SECURE_GATEWAY
+        uses: actions/checkout@v4
+
+      - name: 🧬 INJECTING_PYTHON_RUNTIME
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 🧪 EXECUTING_SYNC_VALIDATION
+        run: |
+          echo "Connecting to Architect Node <turtleboyagain120>..."
+          python main.py
+        env:
+          ARCHITECT_ID: ${{ secrets.ARCHITECT_ID }}
+          PROTOCOL_SIGNATURE: "120FPS_ACTIVE"
+    
