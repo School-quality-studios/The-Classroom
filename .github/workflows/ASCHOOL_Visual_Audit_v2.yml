@@ -1,29 +1,28 @@
-name: ASCHOOL_Visual_Audit_v2
+name: ASCHOOL_Reaction_Audit
 on:
-  issues:
-    types: [opened, edited]
   issue_comment:
+    types: [created]
+  # This triggers the robot whenever you click 👍 or 👎
+  reactions:
     types: [created]
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  optical_verification:
-    name: "Perform Visual Audit"
+  reaction_verification:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔒 ACCESSING_STUDIO_FILES
+      - name: 🔒 ACCESSING_FILES
         uses: actions/checkout@v4
 
-      - name: 🧬 INJECTING_PYTHON_RUNTIME
+      - name: 🧬 INJECTING_PYTHON
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: 🧪 EXECUTING_IMAGE_SCAN_PROTOCOL
+      - name: 🧪 EXECUTING_REACTION_SCAN
         env:
-          ISSUE_BODY: ${{ github.event.issue.body || github.event.comment.body }}
-          GITHUB_ACTOR: ${{ github.actor }}
-        # FIX: Removed "Useless/" because the file is now in the main folder
+          # Passes the specific emoji (+1 or -1) to the Python script
+          REACTION_TYPE: ${{ github.event.reaction.content }}
         run: python Python.py
